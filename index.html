@@ -15,7 +15,7 @@
       --brand:#1d4ed8;
       --brand-2:#2563eb;
       --accent:#16a34a;
-      --accent-2:#15803d;
+      --accent-soft:#eaf8ef;
       --soft:#eff6ff;
       --shadow:0 14px 40px rgba(15,23,42,.10);
       --radius:18px;
@@ -24,7 +24,7 @@
     *{box-sizing:border-box}
     body{
       margin:0;
-      font-family:Arial, Helvetica, sans-serif;
+      font-family:Arial,Helvetica,sans-serif;
       color:var(--text);
       background:linear-gradient(180deg,#f8fbff 0%, var(--bg) 100%);
     }
@@ -34,61 +34,66 @@
       margin:0 auto;
     }
     .hero{
-      padding:56px 0 32px;
+      padding:56px 0 28px;
     }
-        .panel{
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:20px;
+      align-items:start;
+    }
+    .panel{
       background:var(--card);
       border:1px solid var(--line);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
-    }
-    .hero-copy{
-      padding:32px;
+      padding:24px;
     }
     .eyebrow{
       display:inline-block;
-      padding:6px 10px;
-      border-radius:999px;
-      background:var(--soft);
-      color:var(--brand);
-      font-size:12px;
-      font-weight:700;
-      letter-spacing:.03em;
+      font-size:11px;
+      letter-spacing:.08em;
       text-transform:uppercase;
+      color:var(--brand);
+      background:var(--soft);
+      border:1px solid #c7dcff;
+      border-radius:999px;
+      padding:7px 10px;
+      font-weight:700;
       margin-bottom:14px;
     }
     h1{
       margin:0 0 12px;
       font-size:42px;
-      line-height:1.08;
+      line-height:1.05;
     }
     .lead{
-      margin:0 0 18px;
+      margin:0;
       color:var(--muted);
       font-size:18px;
-      line-height:1.55;
-      max-width:62ch;
+      line-height:1.65;
+      max-width:760px;
     }
     .bullets{
-      display:grid;
-      gap:10px;
-      margin:18px 0 22px;
-      padding:0;
       list-style:none;
-      color:var(--text);
+      padding:0;
+      margin:22px 0 0;
+      display:grid;
+      gap:12px;
     }
     .bullets li{
       display:flex;
-      gap:10px;
       align-items:flex-start;
-      line-height:1.45;
+      gap:10px;
+      color:#16324f;
+      line-height:1.5;
     }
     .check{
       width:22px;
       height:22px;
       border-radius:999px;
-      background:#ecfdf5;
-      color:var(--accent-2);
+      background:var(--accent-soft);
+      color:var(--accent);
       display:inline-flex;
       align-items:center;
       justify-content:center;
@@ -96,11 +101,11 @@
       flex:0 0 auto;
       margin-top:1px;
     }
-    .cta-row{
+    .hero-actions{
       display:flex;
-      gap:12px;
       flex-wrap:wrap;
-      margin-top:18px;
+      gap:12px;
+      margin-top:24px;
     }
     .btn{
       display:inline-flex;
@@ -109,50 +114,34 @@
       min-height:46px;
       padding:0 18px;
       border-radius:12px;
-      border:1px solid var(--line);
       font-weight:700;
-      font-size:15px;
+      border:1px solid var(--line);
+      background:#fff;
+      color:var(--text);
       cursor:pointer;
-      transition:.18s ease;
+      transition:.15s ease;
     }
+    .btn:hover{transform:translateY(-1px);filter:brightness(.99)}
     .btn-primary{
-      background:var(--brand-2);
-      border-color:var(--brand-2);
+      background:linear-gradient(180deg,var(--brand-2),var(--brand));
+      border-color:var(--brand);
       color:#fff;
     }
-    .btn-primary:hover{filter:brightness(.97)}
     .btn-secondary{
       background:#fff;
       color:var(--text);
     }
-    .btn-secondary:hover{background:#f8fafc}
-        .mini-card{
-      padding:18px;
-      border-radius:16px;
-      border:1px solid var(--line);
-      background:#fff;
-    }
-    .mini-card h3{
-      margin:0 0 8px;
-      font-size:18px;
-    }
-    .mini-card p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.5;
-      font-size:14px;
-    }
-        
+
     .section{
-      padding:20px 0 48px;
+      padding:14px 0 34px;
     }
     .section-head{
       text-align:center;
-      margin-bottom:22px;
+      margin-bottom:24px;
     }
     .section-head h2{
-      margin:0 0 8px;
       font-size:34px;
+      margin:0 0 8px;
     }
     .section-head p{
       margin:0;
@@ -162,93 +151,97 @@
 
     .pricing{
       display:grid;
-      grid-template-columns:repeat(3, 1fr);
+      grid-template-columns:repeat(3,1fr);
       gap:18px;
-      align-items:stretch;
     }
     .price-card{
-      background:#fff;
+      background:var(--card);
       border:1px solid var(--line);
-      border-radius:20px;
+      border-radius:22px;
       box-shadow:var(--shadow);
-      padding:24px 22px;
+      padding:22px;
       display:flex;
       flex-direction:column;
-      gap:14px;
+      min-height:430px;
+    }
+    .plan-badge{
+      display:inline-block;
+      align-self:flex-start;
+      font-size:11px;
+      font-weight:700;
+      color:#6d5efc;
+      background:#eef0ff;
+      border-radius:999px;
+      padding:6px 10px;
+      margin-bottom:10px;
     }
     .price-title{
-      font-size:22px;
-      font-weight:700;
-      margin:0;
+      margin:0 0 12px;
+      font-size:20px;
     }
     .price-amount{
-      display:flex;
-      align-items:baseline;
-      gap:6px;
-      margin:0;
+      margin:0 0 8px;
+      font-size:18px;
+      color:#0b2456;
     }
     .price-amount strong{
-      font-size:38px;
+      font-size:48px;
       line-height:1;
-    }
-    .price-amount span{
-      color:var(--muted);
-      font-size:15px;
+      letter-spacing:-.03em;
     }
     .price-copy{
       color:var(--muted);
-      line-height:1.5;
-      font-size:14px;
-      min-height:42px;
+      line-height:1.6;
+      min-height:50px;
+      margin-bottom:18px;
     }
     .price-list{
       list-style:none;
       padding:0;
-      margin:0;
+      margin:0 0 26px;
       display:grid;
-      gap:10px;
-      font-size:14px;
-      color:var(--text);
+      gap:14px;
     }
     .price-list li{
       display:flex;
       gap:10px;
-      line-height:1.4;
-    }
-    .badge{
-      display:inline-block;
-      align-self:flex-start;
-      padding:5px 9px;
-      border-radius:999px;
-      background:#eef2ff;
-      color:#4338ca;
-      font-size:12px;
-      font-weight:700;
+      align-items:flex-start;
+      line-height:1.5;
     }
     .price-footer{
       margin-top:auto;
-      display:grid;
-      gap:10px;
     }
-    .small-note{
+    .price-footer .btn{
+      width:100%;
+    }
+
+    .after-pay{
       text-align:center;
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.5;
       margin-top:18px;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.6;
     }
+    .after-pay .btn{
+  display: inline-block;
+  min-width: 260px;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 14px 20px;
+    }
+
     .steps{
       display:grid;
       grid-template-columns:repeat(3,1fr);
       gap:18px;
-      margin-top:24px;
+      margin-top:10px;
     }
     .step{
-      background:#fff;
+      background:var(--card);
       border:1px solid var(--line);
       border-radius:18px;
-      padding:22px;
       box-shadow:var(--shadow);
+      padding:22px;
     }
     .step-no{
       width:34px;
@@ -256,105 +249,91 @@
       border-radius:999px;
       background:var(--soft);
       color:var(--brand);
-      display:inline-flex;
+      font-weight:700;
+      display:flex;
       align-items:center;
       justify-content:center;
-      font-weight:700;
-      margin-bottom:12px;
+      margin-bottom:16px;
     }
     .step h3{
-      margin:0 0 8px;
+      margin:0 0 10px;
       font-size:18px;
     }
     .step p{
       margin:0;
       color:var(--muted);
-      line-height:1.55;
-      font-size:14px;
+      line-height:1.6;
     }
-    .footer{
-      padding:18px 0 50px;
+    .step ul{
+      margin:10px 0 0 18px;
+      color:var(--muted);
+      line-height:1.7;
+      padding:0;
     }
+
     .footer-card{
-      background:#fff;
+      margin:36px 0 44px;
+      background:var(--card);
       border:1px solid var(--line);
-      border-radius:18px;
+      border-radius:20px;
       box-shadow:var(--shadow);
       padding:22px;
       display:flex;
+      align-items:center;
       justify-content:space-between;
       gap:16px;
-      align-items:center;
     }
-    .footer-copy h3{
-      margin:0 0 6px;
-      font-size:20px;
+    .footer-card h3{
+      margin:0 0 8px;
+      font-size:18px;
     }
-    .footer-copy p{
+    .footer-card p{
       margin:0;
       color:var(--muted);
-      line-height:1.55;
-      font-size:14px;
+      line-height:1.6;
     }
-    .support{
-      font-weight:700;
+    .footer-card a{
       color:var(--brand);
-    }
-    .muted{
-      color:var(--muted);
+      font-weight:700;
     }
 
+    .muted{ color:var(--muted); }
+
     @media (max-width: 920px){
-      .pricing,
-      .steps{
-        grid-template-columns:1fr;
-      }
+      .pricing,.steps{grid-template-columns:1fr}
       h1{font-size:34px}
       .section-head h2{font-size:28px}
-      .footer-card{
-        flex-direction:column;
-        align-items:flex-start;
-      }
+      .footer-card{flex-direction:column;align-items:flex-start}
     }
   </style>
 </head>
 <body>
   <main>
     <section class="hero">
-      
-<div class="container">
-  <div class="panel hero-copy">
-    <div class="eyebrow">Works in Chrome and Edge</div>
-    <h1>VFP QuickView</h1>
-    <p class="lead">
-      Preview files instantly in Viewpoint For Projects without opening them one by one.
-      Faster reviews, less clicking, less waiting.
-    </p>
+      <div class="container hero-grid">
+        <div class="panel">
+          <div class="eyebrow">Works in Chrome and Edge</div>
+          <h1>VFP QuickView</h1>
+          <p class="lead">
+            Preview files instantly in Viewpoint For Projects without opening them one by one.
+            Faster reviews, less clicking, less waiting.
+          </p>
 
-    <ul class="bullets">
-      <li><span class="check">✓</span><span>Preview PDF, DOCX, XLSX, TXT, JPG, JPEG and PNG files directly inside Viewpoint For Projects.</span></li>
-      <li><span class="check">✓</span><span>Continuous viewing with next and previous file navigation using on-screen arrows or keyboard arrow keys.</span></li>
-      <li><span class="check">✓</span><span>Zoom controls let you inspect details more closely when reviewing drawings, reports and schedules.</span></li>
-      <li><span class="check">✓</span><span>Save time when checking drawings, reports, schedules and document revisions.</span></li>
-      <li><span class="check">✓</span><span>15-day free trial included before you decide to buy.</span></li>
-    </ul>
+          <ul class="bullets">
+            <li><span class="check">✓</span><span>Preview PDF, DOCX, XLSX, TXT, JPG, JPEG and PNG files directly inside Viewpoint For Projects.</span></li>
+            <li><span class="check">✓</span><span>Continuous viewing with next and previous file navigation using on-screen arrows or keyboard arrow keys.</span></li>
+            <li><span class="check">✓</span><span>Zoom controls let you inspect details more closely when reviewing drawings, reports and schedules.</span></li>
+            <li><span class="check">✓</span><span>Designed for structural engineers, project engineers, construction professionals, design coordinators, document controllers and site administrators.</span></li>
+            <li><span class="check">✓</span><span>15-day free trial included before you decide to buy.</span></li>
+          </ul>
 
-    <div class="mini-card" style="margin-top:18px;">
-      <h3>Designed for</h3>
-      <p>
-        Structural engineers, Project engineers, Construction professionals,
-        Design coordinators, Document controllers, Site administrators and other teams
-        who review project files regularly inside Viewpoint For Projects.
-      </p>
-    </div>
-
-    <div class="cta-row">
-      <a class="btn btn-primary" href="#pricing">View pricing</a>
-      <a class="btn btn-secondary" href="mailto:hcao@bhc.ltd.uk?subject=VFP%20QuickView%20enquiry">Contact support</a>
-    </div>
-  </div>
-</div>
-</section>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#pricing">View pricing</a>
+            <a class="btn btn-secondary" href="mailto:hcao@bhc.ltd.uk?subject=VFP%20QuickView%20enquiry">Contact support</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section id="pricing" class="section">
       <div class="container">
@@ -366,7 +345,7 @@
         <div class="pricing">
           <article class="price-card">
             <h3 class="price-title">Monthly</h3>
-            <p class="price-amount"><strong>£9.99</strong><span>per month</span></p>
+            <p class="price-amount"><strong>£9.99</strong> per month</p>
             <div class="price-copy">Flexible access if you want to start small.</div>
             <ul class="price-list">
               <li><span class="check">✓</span><span>Full premium access</span></li>
@@ -380,7 +359,7 @@
 
           <article class="price-card">
             <h3 class="price-title">6 Months</h3>
-            <p class="price-amount"><strong>£49</strong><span>for 6 months</span></p>
+            <p class="price-amount"><strong>£49</strong> for 6 months</p>
             <div class="price-copy">Lower cost than paying monthly.</div>
             <ul class="price-list">
               <li><span class="check">✓</span><span>Full premium access</span></li>
@@ -393,9 +372,9 @@
           </article>
 
           <article class="price-card">
-            <span class="badge">Annual</span>
+            <div class="plan-badge">Annual</div>
             <h3 class="price-title">Annual</h3>
-            <p class="price-amount"><strong>£79</strong><span>per year</span></p>
+            <p class="price-amount"><strong>£79</strong> per year</p>
             <div class="price-copy">Best for regular users who want the lowest long-term cost.</div>
             <ul class="price-list">
               <li><span class="check">✓</span><span>Full premium access</span></li>
@@ -408,10 +387,11 @@
           </article>
         </div>
 
-        <p class="small-note">
-          15-day free trial available in the extension. After payment, send your work email to
-          <span class="support">hcao@bhc.ltd.uk</span> to receive your licence code.
-        </p>
+<div class="after-pay">
+  <p>15-day free trial available in the extension.</p>
+  <p>Completed payment already? Send your work email and PayPal transaction ID to request your license.</p>
+  <a class="btn btn-primary" href="https://vfp-quickview.github.io/vfp-quickview/success.html">Send license request</a>
+</div>
       </div>
     </section>
 
@@ -428,32 +408,36 @@
             <h3>Install the extension</h3>
             <p>Install VFP QuickView in Chrome or Edge and start your 15-day free trial.</p>
           </div>
+
           <div class="step">
             <div class="step-no">2</div>
             <h3>Choose a plan</h3>
             <p>Pick Monthly, 6 Months or Annual and complete payment using PayPal or card.</p>
           </div>
+
           <div class="step">
             <div class="step-no">3</div>
-            <h3>Receive your licence</h3>
-            <p>Send your work email to <span class="support">hcao@bhc.ltd.uk</span> and your licence code will be issued.</p>
+            <h3>Receive your license</h3>
+            <p>After completing payment, open the license request page and send the following:</p>
+            <ul>
+              <li>Your work email</li>
+              <li>Your PayPal transaction ID</li>
+            </ul>
+            <p style="margin-top:10px;">Your license will be issued after we receive your request.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="footer">
-      <div class="container">
-        <div class="footer-card">
-          <div class="footer-copy">
-            <h3>Need help or another enquiry?</h3>
-            <p>
-              Contact <span class="support">hcao@bhc.ltd.uk</span>.
-              This page works in both Chrome and Edge, so you can share one link with all users.
-            </p>
-          </div>
-          <a class="btn btn-secondary" href="mailto:hcao@bhc.ltd.uk?subject=VFP%20QuickView%20enquiry">Email support</a>
+    <section class="container">
+      <div class="footer-card">
+        <div>
+          <h3>Need help or another enquiry?</h3>
+          <p>
+            Contact <a href="mailto:hcao@bhc.ltd.uk?subject=VFP%20QuickView%20enquiry">hcao@bhc.ltd.uk</a>.
+          </p>
         </div>
+        <a class="btn btn-secondary" href="mailto:hcao@bhc.ltd.uk?subject=VFP%20QuickView%20enquiry">Email support</a>
       </div>
     </section>
   </main>
